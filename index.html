@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KarigarAI | Smart Business for Artisans</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="navbar">
+
+    <div class="brand">
+        <div class="brand-icon">✦</div>
+
+        <div>
+            <h2>KarigarAI</h2>
+            <span>Smart Business for Artisans</span>
+        </div>
+    </div>
+
+    <div class="nav-right">
+
+        <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ta">தமிழ்</option>
+        </select>
+
+        <div class="profile" onclick="openAuthModal()" title="Click to switch user role / profile">
+            <div class="profile-avatar" id="headerAvatar">A</div>
+            <div class="profile-meta">
+                <span class="user-name" id="headerUserName">Artisan</span>
+                <span class="user-role-badge" id="headerRoleBadge">Seller</span>
+            </div>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+
+<!-- ================= ROLE CONTEXT BANNER ================= -->
+
+<div class="role-notification" id="roleNotification">
+    <div class="role-notif-content">
+        <span class="notif-icon" id="notifIcon">✦</span>
+        <span id="roleNotifText">Logged in as <strong>Artisan (Seller Mode)</strong>. AI business tools are active.</span>
+    </div>
+    <button class="switch-role-btn" onclick="openAuthModal()">
+        ⇄ Switch User Mode
+    </button>
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="heroSection">
+
+    <div class="hero-content">
+
+        <div class="ai-label" id="heroBadge">
+            <span>✦</span>
+            AI-POWERED BUSINESS MANAGER
+        </div>
+
+        <h1 id="heroTitle">
+            Turn your craft<br>
+            into a <span>digital business.</span>
+        </h1>
+
+        <p id="heroSubtitle">
+            Create professional product listings,
+            discover competitive prices and reach
+            buyers across India — with the power of AI.
+        </p>
+
+        <button class="primary-btn" id="heroActionBtn" onclick="handleHeroAction()">
+            <span>＋</span>
+            Add New Product
+        </button>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="floating-card card-one" id="heroCardOne">
+            <span>✦</span>
+            AI Catalog
+            <strong>Generated</strong>
+        </div>
+
+        <div class="artisan-circle">
+            <div class="craft-symbol">♢</div>
+        </div>
+
+        <div class="floating-card card-two" id="heroCardTwo">
+            <span>₹</span>
+            Smart Price
+            <strong>₹1,250</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SELLER ONLY: STATS ================= -->
+
+<section class="stats seller-only" id="sellerStats">
+
+    <div>
+        <strong>12</strong>
+        <span>Products Listed</span>
+    </div>
+
+    <div>
+        <strong>₹28.4K</strong>
+        <span>Potential Sales</span>
+    </div>
+
+    <div>
+        <strong>156</strong>
+        <span>Buyer Views</span>
+    </div>
+
+    <div>
+        <strong>4.8 ★</strong>
+        <span>Product Rating</span>
+    </div>
+
+</section>
+
+
+<!-- ================= SELLER ONLY: QUICK ACTIONS ================= -->
+
+<section class="section seller-only" id="sellerQuickActions">
+
+    <div class="section-heading">
+
+        <div>
+            <p class="eyebrow">YOUR AI ASSISTANT</p>
+            <h2>What would you like to do?</h2>
+        </div>
+
+    </div>
+
+
+    <div class="action-grid">
+
+
+        <div class="action-card featured" onclick="openStudio()">
+
+            <div class="action-top">
+
+                <div class="action-icon camera">
+                    📷
+                </div>
+
+                <span class="arrow">↗</span>
+
+            </div>
+
+            <h3>AI Image Studio</h3>
+
+            <p>
+                Turn ordinary product photos into
+                professional e-commerce images.
+            </p>
+
+            <div class="feature-tag">
+                Background Removal · Lighting · Crop
+            </div>
+
+        </div>
+
+
+        <div class="action-card" onclick="openCatalog()">
+
+            <div class="action-top">
+
+                <div class="action-icon catalog">
+                    ✎
+                </div>
+
+                <span class="arrow">↗</span>
+
+            </div>
+
+            <h3>Smart Catalog</h3>
+
+            <p>
+                Describe your product in your
+                regional language and let AI do the rest.
+            </p>
+
+            <div class="feature-tag">
+                Voice · Translation · SEO
+            </div>
+
+        </div>
+
+
+        <div class="action-card" onclick="openPricing()">
+
+            <div class="action-top">
+
+                <div class="action-icon pricing">
+                    ₹
+                </div>
+
+                <span class="arrow">↗</span>
+
+            </div>
+
+            <h3>Dynamic Pricing</h3>
+
+            <p>
+                Get an AI-powered competitive price
+                based on costs and market trends.
+            </p>
+
+            <div class="feature-tag">
+                Market · Cost · Demand
+            </div>
+
+        </div>
+
+
+        <div class="action-card" onclick="openMarket()">
+
+            <div class="action-top">
+
+                <div class="action-icon market">
+                    ◉
+                </div>
+
+                <span class="arrow">↗</span>
+
+            </div>
+
+            <h3>Market Link</h3>
+
+            <p>
+                Connect your products with buyers,
+                retailers and larger markets.
+            </p>
+
+            <div class="feature-tag">
+                B2B · Buyers · Government
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BUYER ONLY: SEARCH & CATEGORY FILTER ================= -->
+
+<section class="section buyer-only hidden" id="buyerFilterSection">
+
+    <div class="buyer-filter-card">
+
+        <div class="search-bar-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="buyerSearchInput" placeholder="Search authentic handmade crafts (e.g. bamboo, silk saree, clay pot)..." oninput="filterBuyerProducts()">
+        </div>
+
+        <div class="category-pills">
+            <button class="pill active" onclick="setCategoryFilter('all', this)">All Crafts</button>
+            <button class="pill" onclick="setCategoryFilter('bamboo', this)">🎋 Bamboo & Cane</button>
+            <button class="pill" onclick="setCategoryFilter('textile', this)">🧵 Handloom & Silk</button>
+            <button class="pill" onclick="setCategoryFilter('pottery', this)">🏺 Clay & Terracotta</button>
+            <button class="pill" onclick="setCategoryFilter('metal', this)">🪔 Brass & Metal</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS SECTION ================= -->
+
+<section class="section" id="productsSection">
+
+    <div class="section-heading">
+
+        <div>
+            <p class="eyebrow" id="inventoryEyebrow">YOUR INVENTORY</p>
+            <h2 id="inventoryTitle">My Products</h2>
+        </div>
+
+        <div class="heading-actions">
+            <button class="text-btn" id="viewAllBtn">
+                View All →
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="products" id="productsGrid">
+
+        <!-- Product 1: Traditional Bamboo Basket -->
+        <div class="product-card" data-category="bamboo" data-name="Traditional Bamboo Basket">
+            <div class="product-image basket" style="height: 180px; overflow: hidden; background: #fff; position: relative; display: flex; align-items: center; justify-content: center;">
+                <img src="basket.jpg" alt="Traditional Bamboo Basket" style="width: 100%; height: 100%; object-fit: contain;">
+                <span class="stock-badge buyer-only hidden" style="position: absolute; top: 10px; right: 10px;">In Stock: 45 pcs</span>
+            </div>
+            <div class="product-info">
+                <h3>Traditional Bamboo Basket</h3>
+                <p>Handcrafted · Eco-friendly · Assam Cluster</p>
+                <div class="product-bottom">
+                    <strong>₹1,250</strong>
+                    <span class="status seller-only">● Listed</span>
+                    <button class="buy-btn buyer-only hidden" onclick="orderProduct('Traditional Bamboo Basket', '₹1,250')">
+                        Order Now 🛍
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2: Handwoven Cotton Saree -->
+        <div class="product-card" data-category="textile" data-name="Handwoven Cotton Saree">
+            <div class="product-image textile" style="height: 180px; overflow: hidden; background: #fff; position: relative; display: flex; align-items: center; justify-content: center;">
+                <img src="saree.jpg" alt="Handwoven Cotton Saree" style="width: 100%; height: 100%; object-fit: contain;">
+                <span class="stock-badge buyer-only hidden" style="position: absolute; top: 10px; right: 10px;">In Stock: 18 pcs</span>
+            </div>
+            <div class="product-info">
+                <h3>Handwoven Cotton Saree</h3>
+                <p>Traditional · Handwoven · Varanasi Guild</p>
+                <div class="product-bottom">
+                    <strong>₹2,850</strong>
+                    <span class="status seller-only">● Listed</span>
+                    <button class="buy-btn buyer-only hidden" onclick="orderProduct('Handwoven Cotton Saree', '₹2,850')">
+                        Order Now 🛍
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3: Terracotta Pot -->
+        <div class="product-card" data-category="pottery" data-name="Terracotta Pot">
+            <div class="product-image pottery" style="height: 180px; overflow: hidden; background: #fff; position: relative; display: flex; align-items: center; justify-content: center;">
+                <img src="pot.jpg" alt="Terracotta Pot" style="width: 100%; height: 100%; object-fit: contain;">
+                <span class="stock-badge buyer-only hidden" style="position: absolute; top: 10px; right: 10px;">In Stock: 60 pcs</span>
+            </div>
+            <div class="product-info">
+                <h3>Terracotta Pot</h3>
+                <p>Handmade · Traditional · Bengal Clay</p>
+                <div class="product-bottom">
+                    <strong>₹650</strong>
+                    <span class="status seller-only">● Listed</span>
+                    <button class="buy-btn buyer-only hidden" onclick="orderProduct('Terracotta Pot', '₹650')">
+                        Order Now 🛍
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4: Handcrafted Brass Diya Lamp -->
+        <div class="product-card buyer-only hidden" data-category="metal" data-name="Handcrafted Brass Diya Lamp">
+            <div class="product-image brass" style="height: 180px; overflow: hidden; background: #fff; position: relative; display: flex; align-items: center; justify-content: center;">
+                <img src="diya.jpg" alt="Handcrafted Brass Diya Lamp" style="width: 100%; height: 100%; object-fit: contain;">
+                <span class="stock-badge" style="position: absolute; top: 10px; right: 10px;">In Stock: 30 pcs</span>
+            </div>
+            <div class="product-info">
+                <h3>Handcrafted Brass Diya Lamp</h3>
+                <p>Traditional · Pure Brass · Moradabad Craft</p>
+                <div class="product-bottom">
+                    <strong>₹1,850</strong>
+                    <button class="buy-btn" onclick="orderProduct('Handcrafted Brass Diya Lamp', '₹1,850')">
+                        Order Now 🛍
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5: Jaipur Blue Pottery Floral Vase -->
+        <div class="product-card buyer-only hidden" data-category="pottery" data-name="Jaipur Blue Pottery Floral Vase">
+            <div class="product-image blue-pottery" style="height: 180px; overflow: hidden; background: #fff; position: relative; display: flex; align-items: center; justify-content: center;">
+                <img src="vase.jpg" alt="Jaipur Blue Pottery Vase" style="width: 100%; height: 100%; object-fit: contain;">
+                <span class="stock-badge" style="position: absolute; top: 10px; right: 10px;">In Stock: 22 pcs</span>
+            </div>
+            <div class="product-info">
+                <h3>Jaipur Blue Pottery Vase</h3>
+                <p>Hand-painted · Glazed Quartz · Rajasthan</p>
+                <div class="product-bottom">
+                    <strong>₹1,450</strong>
+                    <button class="buy-btn" onclick="orderProduct('Jaipur Blue Pottery Vase', '₹1,450')">
+                        Order Now 🛍
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 6: Cane Handcrafted Fruit Tray -->
+        <div class="product-card buyer-only hidden" data-category="bamboo" data-name="Cane Handcrafted Fruit Tray">
+            <div class="product-image cane-tray" style="height: 180px; overflow: hidden; background: #fff; position: relative; display: flex; align-items: center; justify-content: center;">
+                <img src="tray.jpg" alt="Cane Handcrafted Fruit Tray" style="width: 100%; height: 100%; object-fit: contain;">
+                <span class="stock-badge" style="position: absolute; top: 10px; right: 10px;">In Stock: 40 pcs</span>
+            </div>
+            <div class="product-info">
+                <h3>Cane Handcrafted Fruit Tray</h3>
+                <p>Organic Cane · Eco-Friendly · Tripura</p>
+                <div class="product-bottom">
+                    <strong>₹890</strong>
+                    <button class="buy-btn" onclick="orderProduct('Cane Handcrafted Fruit Tray', '₹890')">
+                        Order Now 🛍
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BUYER ONLY: DIRECT ARTISAN CLUSTER SOURCING ================= -->
+
+<section class="section buyer-only hidden" id="buyerSourcingSection">
+
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">B2B DIRECT SOURCING</p>
+            <h2>Verified Artisan Clusters</h2>
+        </div>
+        <button class="text-btn" onclick="requestBulkQuote()">
+            Request Custom Bulk Quote →
+        </button>
+    </div>
+
+    <div class="buyer-sourcing-grid">
+
+        <!-- Cluster 1: Assam Bamboo Craft Cooperative -->
+        <div class="sourcing-card">
+            <div class="sourcing-badge">✦ VERIFIED CLUSTER</div>
+            
+            <div style="height: 200px; width: 100%; overflow: hidden; background: #f8f9fa; position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <img src="assam-cluster.jpg" alt="Assam Bamboo Craft Cooperative" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+            </div>
+
+            <h3>Assam Bamboo Craft Cooperative</h3>
+            <p>45 Master Weavers · Guwahati, Assam</p>
+            <div class="sourcing-stats">
+                <span>Min Order: <strong>20 pcs</strong></span>
+                <span>Lead Time: <strong>7 days</strong></span>
+            </div>
+            <a href="tel:9080397187" class="sourcing-btn" style="display: block; text-align: center; text-decoration: none;">
+                Contact Cooperative & Order
+            </a>
+        </div>
+
+        <!-- Cluster 2: Varanasi Handloom Weavers Guild -->
+        <div class="sourcing-card">
+            <div class="sourcing-badge">✦ VERIFIED CLUSTER</div>
+            
+            <div style="height: 200px; width: 100%; overflow: hidden; background: #f8f9fa; position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <img src="varanasi-cluster.jpg" alt="Varanasi Handloom Weavers Guild" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+            </div>
+
+            <h3>Varanasi Handloom Weavers Guild</h3>
+            <p>60 Traditional Looms · Varanasi, UP</p>
+            <div class="sourcing-stats">
+                <span>Min Order: <strong>10 pcs</strong></span>
+                <span>Lead Time: <strong>10 days</strong></span>
+            </div>
+            <a href="tel:9080397187" class="sourcing-btn" style="display: block; text-align: center; text-decoration: none;">
+                Contact Cooperative & Order
+            </a>
+        </div>
+
+        <!-- Cluster 3: Bankura Terracotta Potter Guild -->
+        <div class="sourcing-card">
+            <div class="sourcing-badge">✦ VERIFIED CLUSTER</div>
+            
+            <div style="height: 200px; width: 100%; overflow: hidden; background: #f8f9fa; position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                <img src="bankura-cluster.jpg" alt="Bankura Terracotta Potter Guild" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+            </div>
+
+            <h3>Bankura Terracotta Potter Guild</h3>
+            <p>35 Master Potters · Bishnupur, WB</p>
+            <div class="sourcing-stats">
+                <span>Min Order: <strong>50 pcs</strong></span>
+                <span>Lead Time: <strong>5 days</strong></span>
+            </div>
+            <a href="tel:9080397187" class="sourcing-btn" style="display: block; text-align: center; text-decoration: none;">
+                Contact Cooperative & Order
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SELLER WORKSPACES ================= -->
+
+<section id="studio" class="workspace seller-only hidden">
+
+    <div class="workspace-header">
+
+        <div>
+            <p class="eyebrow">STEP 01</p>
+            <h2>AI Image Studio</h2>
+            <p>
+                Make your product photo ready for online selling.
+            </p>
+        </div>
+
+        <button class="close-btn" onclick="closeWorkspace()">×</button>
+
+    </div>
+
+
+    <div class="studio-layout">
+
+        <label class="upload-area">
+
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                onchange="previewImage(event)"
+            >
+
+            <div id="uploadMessage">
+
+                <div class="upload-icon">📷</div>
+
+                <h3>Upload Product Photo</h3>
+
+                <p>
+                    Take a photo or choose one from your device
+                </p>
+
+                <span class="upload-button">
+                    Choose Photo
+                </span>
+
+            </div>
+
+            <img id="preview" class="image-preview hidden">
+
+        </label>
+
+
+        <div class="ai-tools">
+
+            <h3>AI Enhancement</h3>
+
+            <div class="tool">
+
+                <div>
+                    <strong>Background Removal</strong>
+                    <small>Remove unwanted surroundings</small>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" id="bgRemovalToggle" checked>
+                    <span></span>
+                </label>
+
+            </div>
+
+
+            <div class="tool">
+
+                <div>
+                    <strong>Lighting Correction</strong>
+                    <small>Improve brightness and clarity</small>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" id="lightingToggle" checked>
+                    <span></span>
+                </label>
+
+            </div>
+
+
+            <div class="tool">
+
+                <div>
+                    <strong>E-commerce Format</strong>
+                    <small>Optimize image dimensions</small>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" id="ecommerceToggle" checked>
+                    <span></span>
+                </label>
+
+            </div>
+
+
+            <button
+                class="primary-btn full"
+                onclick="enhanceImage()"
+            >
+                ✦ Enhance with AI
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATALOG ================= -->
+
+<section id="catalog" class="workspace seller-only hidden">
+
+    <div class="workspace-header">
+
+        <div>
+            <p class="eyebrow">STEP 02</p>
+            <h2>Multilingual Auto-Cataloger</h2>
+            <p>
+                Tell us about your product. AI will create the listing.
+            </p>
+        </div>
+
+        <button class="close-btn" onclick="closeWorkspace()">×</button>
+
+    </div>
+
+
+    <div class="catalog-input">
+
+        <label>Product Name</label>
+
+        <input
+            id="productName"
+            type="text"
+            placeholder="Example: Handmade Bamboo Basket"
+        >
+
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin: 18px 0 7px;">
+            <label style="margin: 0;">Describe your product</label>
+            <span id="voiceTranslatingState" class="voice-translating hidden">✦ Translating...</span>
+        </div>
+
+        <div class="voice-box">
+
+            <textarea
+                id="productDescription"
+                placeholder="Type your description or use your voice..."
+            ></textarea>
+
+            <button
+                class="mic-btn"
+                onclick="startVoice()"
+            >
+                🎙
+            </button>
+
+        </div>
+
+
+        <div class="language-row">
+
+            <div>
+
+                <span>Input Language</span>
+
+                <select id="inputLanguage">
+
+                    <option value="ta-IN">
+                        Tamil — தமிழ்
+                    </option>
+
+                    <option value="hi-IN">
+                        Hindi — हिन्दी
+                    </option>
+
+                    <option value="te-IN">
+                        Telugu — తెలుగు
+                    </option>
+
+                    <option value="en-IN">
+                        English
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="ai-translation">
+                ✦ AI will generate
+                <strong>English + Hindi</strong>
+                listings
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-btn full"
+            onclick="generateCatalog()"
+        >
+            ✦ Generate AI Catalog
+        </button>
+
+    </div>
+
+
+    <div id="catalogResult" class="catalog-result hidden">
+
+        <div class="result-header">
+            <span class="ai-badge">AI GENERATED</span>
+            <h3 id="resultName">
+                Handmade Bamboo Basket
+            </h3>
+        </div>
+
+
+        <div class="description-box">
+
+            <div>
+                <span>ENGLISH</span>
+                <p id="englishDescription"></p>
+            </div>
+
+
+            <div>
+                <span>हिन्दी</span>
+                <p id="hindiDescription"></p>
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <span class="label">SEO KEYWORDS</span>
+
+            <div class="tags" id="keywordTags"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRICING ================= -->
+
+<section id="pricing" class="workspace seller-only hidden">
+
+    <div class="workspace-header">
+
+        <div>
+            <p class="eyebrow">STEP 03</p>
+            <h2>Dynamic Pricing Assistant</h2>
+            <p>
+                Get a competitive price recommendation.
+            </p>
+        </div>
+
+        <button class="close-btn" onclick="closeWorkspace()">×</button>
+
+    </div>
+
+
+    <div class="pricing-layout">
+
+
+        <div class="cost-form">
+
+            <label>Raw Material Cost</label>
+
+            <input
+                type="number"
+                id="materialCost"
+                value="500"
+            >
+
+
+            <label>Crafting / Labour Cost</label>
+
+            <input
+                type="number"
+                id="labourCost"
+                value="350"
+            >
+
+
+            <label>Other Costs</label>
+
+            <input
+                type="number"
+                id="otherCost"
+                value="100"
+            >
+
+
+            <button
+                class="primary-btn full"
+                onclick="calculatePrice()"
+            >
+                ✦ Analyze Market Price
+            </button>
+
+        </div>
+
+
+        <div class="price-result">
+
+            <span>AI RECOMMENDED PRICE</span>
+
+            <h1 id="recommendedPrice">
+                ₹1,235
+            </h1>
+
+            <p>
+                Based on estimated market demand,
+                production costs and competitive pricing.
+            </p>
+
+
+            <div class="price-range">
+
+                <div>
+                    <small>LOW</small>
+                    <strong>₹1,050</strong>
+                </div>
+
+                <div class="recommended">
+                    <small>RECOMMENDED</small>
+                    <strong>₹1,235</strong>
+                </div>
+
+                <div>
+                    <small>HIGH</small>
+                    <strong>₹1,450</strong>
+                </div>
+
+            </div>
+
+
+            <div class="confidence">
+                <span>AI Confidence</span>
+                <strong>87%</strong>
+            </div>
+
+            <div class="progress">
+                <div></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MARKET LINK ================= -->
+
+<section id="market" class="workspace seller-only hidden">
+
+    <div class="workspace-header">
+
+        <div>
+            <p class="eyebrow">STEP 04</p>
+            <h2>Market Linkage</h2>
+            <p>
+                Discover potential markets for your products.
+            </p>
+        </div>
+
+        <button class="close-btn" onclick="closeWorkspace()">×</button>
+
+    </div>
+
+
+    <div class="market-banner">
+
+        <div>
+
+            <span>✦ AI MARKET MATCH</span>
+
+            <h2>
+                We found 24 potential buyers
+                for your products.
+            </h2>
+
+        </div>
+
+        <strong>24</strong>
+
+    </div>
+
+
+    <div class="buyer-grid">
+
+
+        <div class="buyer-card">
+
+            <div class="buyer-icon">🏪</div>
+
+            <div>
+
+                <h3>Handmade Retail Network</h3>
+
+                <p>
+                    Retailer · 92% Match
+                </p>
+
+                <button>View Opportunity →</button>
+
+            </div>
+
+        </div>
+
+
+        <div class="buyer-card">
+
+            <div class="buyer-icon">🛒</div>
+
+            <div>
+
+                <h3>Indian Artisan Marketplace</h3>
+
+                <p>
+                    E-commerce · 88% Match
+                </p>
+
+                <button>View Opportunity →</button>
+
+            </div>
+
+        </div>
+
+
+        <div class="buyer-card">
+
+            <div class="buyer-icon">🏛</div>
+
+            <div>
+
+                <h3>Government Marketplace</h3>
+
+                <p>
+                    Institutional · 84% Match
+                </p>
+
+                <button>View Opportunity →</button>
+
+            </div>
+
+        </div>
+
+
+        <div class="buyer-card">
+
+            <div class="buyer-icon">🌎</div>
+
+            <div>
+
+                <h3>International Craft Buyer</h3>
+
+                <p>
+                    Export · 78% Match
+                </p>
+
+                <button>View Opportunity →</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= IMPACT ================= -->
+
+<section class="impact">
+
+    <div class="impact-text">
+
+        <p class="eyebrow">OUR IMPACT</p>
+
+        <h2>
+            From local craftsmanship
+            to global opportunity.
+        </h2>
+
+        <p>
+            KarigarAI reduces the digital barrier for
+            marginalized artisans and helps them access
+            continuous, year-round markets.
+        </p>
+
+    </div>
+
+
+    <div class="impact-stats">
+
+        <div>
+            <strong>365</strong>
+            <span>Days of Market Access</span>
+        </div>
+
+        <div>
+            <strong>3×</strong>
+            <span>Digital Reach Potential</span>
+        </div>
+
+        <div>
+            <strong>24/7</strong>
+            <span>AI Business Assistance</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ================= LOGIN / ROLE MODAL ================= -->
+
+<div class="modal-overlay hidden" id="authModal">
+
+    <div class="modal-card" style="max-height: 85vh; overflow-y: auto;">
+
+        <button class="modal-close" onclick="closeAuthModal()">×</button>
+
+        <div class="modal-brand">
+            <span class="modal-brand-icon">✦</span>
+            <h2>Welcome to KarigarAI</h2>
+            <p>Select your user role to access personalized tools</p>
+        </div>
+
+        <!-- Role Selector Tabs -->
+        <div class="role-selector">
+
+            <div class="role-card active" id="roleCardSeller" onclick="selectRole('seller')">
+                <div class="role-icon">✦</div>
+                <div class="role-info">
+                    <strong>Artisan / Seller</strong>
+                    <small>AI Studio, Smart Catalog, Dynamic Pricing & Inventory</small>
+                </div>
+            </div>
+
+            <div class="role-card" id="roleCardBuyer" onclick="selectRole('buyer')">
+                <div class="role-icon">🛍</div>
+                <div class="role-info">
+                    <strong>Buyer / Retailer</strong>
+                    <small>Browse Available Products, Wholesale Sourcing & Direct Orders</small>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Login Form -->
+        <form class="auth-form" onsubmit="handleAuthSubmit(event)">
+
+            <label id="authNameLabel">Your Name / Business Name</label>
+            <input type="text" id="authUserName" value="Ramesh Kumar (Artisan)" required>
+
+            <label id="authContactLabel">Mobile Number / Email</label>
+            <input type="text" id="authUserContact" value="+91 98765 43210" required>
+
+            <!-- OTP Input Box (Initially Hidden until Send OTP is clicked) -->
+            <div id="otpFieldContainer" class="hidden" style="margin-top: 15px; margin-bottom: 15px; background: #fdfbf7; padding: 15px; border-radius: 8px; border: 1px solid #e2d7c5;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2f6f4e;">Enter 4-Digit Verification OTP</label>
+                <input type="text" id="authOtpInput" placeholder="Enter OTP" maxlength="4" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1.1rem; letter-spacing: 3px; text-align: center;" autocomplete="off">
+                <small id="otpHintText" style="color: #666; display: block; margin-top: 5px;"></small>
+            </div>
+
+            <!-- Seller ID Verification Upload Section (Only visible for Seller via seller-only class) -->
+            <div id="sellerIdProofContainer" class="seller-only" style="margin-top: 15px; padding: 12px; background: #fdfbf7; border-radius: 8px; border: 1px solid #e2d7c5;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2f6f4e; font-size: 0.9rem;">📷 Upload Govt ID Proof (Aadhaar / Craft Card)</label>
+                <input type="file" id="artisanIdProofInput" accept="image/*" capture="environment" onchange="handleIdProofUpload(event)" style="width: 100%; font-size: 0.85rem;">
+                <div id="idProofStatusBadge" style="margin-top: 8px; padding: 6px 10px; border-radius: 4px; text-align: center; font-weight: bold; font-size: 0.85rem; background: #f0f0f0; color: #666;">
+                    ⏳ Status: ID Not Uploaded
+                </div>
+            </div>
+
+            <div class="quick-demo-accounts">
+                <span>One-Click Demo Login:</span>
+                <div class="demo-buttons">
+                    <button type="button" class="demo-btn" onclick="quickLogin('seller')">✦ Artisan (Seller)</button>
+                    <button type="button" class="demo-btn" onclick="quickLogin('buyer')">🛍 Retailer (Buyer)</button>
+                </div>
+            </div>
+
+            <button type="submit" class="primary-btn full" id="authSubmitBtn" style="margin-top: 15px;">
+                ✦ Send Verification OTP
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ORDER / INQUIRY MODAL ================= -->
+
+<div class="modal-overlay hidden" id="orderModal">
+
+    <div class="modal-card">
+
+        <button class="modal-close" onclick="closeOrderModal()">×</button>
+
+        <div class="modal-brand">
+            <span class="modal-brand-icon">🛍</span>
+            <h2 id="orderModalTitle">Order Authentic Craft</h2>
+            <p id="orderModalSubtitle">Direct maker fulfillment with verified authenticity</p>
+        </div>
+
+        <form class="auth-form" onsubmit="handleOrderSubmit(event)">
+
+            <label>Product</label>
+            <input type="text" id="orderProductName" readonly>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div>
+                    <label>Price</label>
+                    <input type="text" id="orderProductPrice" readonly>
+                </div>
+                <div>
+                    <label>Quantity</label>
+                    <input type="number" id="orderQuantity" value="1" min="1" max="1000" required>
+                </div>
+            </div>
+
+            <label>Delivery Address / Shipping Location</label>
+            <input type="text" id="orderAddress" placeholder="e.g. 124, Craft Avenue, Connaught Place, New Delhi" required>
+
+            <button type="submit" class="primary-btn full" style="margin-top: 20px;">
+                Confirm Order & Connect with Artisan
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ARTISAN DETAILS MODAL ================= -->
+
+<div class="modal-overlay hidden" id="artisanDetailsModal">
+
+    <div class="modal-card">
+
+        <button class="modal-close" onclick="closeArtisanModal()">×</button>
+
+        <div class="modal-brand">
+            <span class="modal-brand-icon">🎉</span>
+            <h2>Order Placed & Connected!</h2>
+            <p>Your order details have been shared with the artisan.</p>
+        </div>
+
+        <div class="artisan-info-card" style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px solid #eee;">
+            <h3 style="margin-bottom: 5px; color: #111;">Ramesh Kumar (Master Artisan)</h3>
+            <p style="margin: 4px 0; color: #555;">📍 Assam Craft Cluster, India</p>
+            <p style="margin: 4px 0; color: #555;">📞 <strong>Phone:</strong> +91 9080397187</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <a id="whatsappLink" href="https://wa.me/919080397187?text=Hello%20Ramesh%20Kumar,%20I%20have%20placed%20an%20order%20on%20KarigarAI!" target="_blank" style="background: #25D366; color: white; text-align: center; padding: 12px; text-decoration: none; border-radius: 6px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                💬 Chat on WhatsApp
+            </a>
+
+            <button onclick="closeArtisanModal()" class="primary-btn full" style="background: #666;">
+                Done
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div>
+        <strong>KalaNova</strong>
+        <span>AI-driven market linkage for artisans.</span>
+    </div>
+
+    <p>
+        Built for Smart India Hackathon
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
